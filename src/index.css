@@ -1,0 +1,128 @@
+:root {
+  --navy: #060f1e;
+  --navy-2: #0c1a2f;
+  --ink: #0f172a;
+  --body: #354155;
+  --muted: #64748b;
+  --line: #e3e9f2;
+  --surface: #ffffff;
+  --soft: #f4f8fc;
+  --brand: #1d4ed8;
+  --brand-2: #3b82f6;
+  --accent: #0ea5e9;
+  --gold: #f59e0b;
+  --green: #15803d;
+  --red: #b91c1c;
+  --radius: 16px;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, .05), 0 10px 26px -16px rgba(15, 23, 42, .25);
+  --shadow-md: 0 24px 55px -32px rgba(6, 15, 30, .55);
+  --max: 1240px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--body);
+  background: var(--soft);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .35;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::before {
+  background: radial-gradient(circle, rgba(59, 130, 246, .55), transparent 68%);
+  top: -210px;
+  left: -180px;
+  animation: drift 20s ease-in-out infinite alternate;
+}
+
+body::after {
+  background: radial-gradient(circle, rgba(14, 165, 233, .45), transparent 70%);
+  bottom: -240px;
+  right: -190px;
+  animation: drift 26s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(120px, 90px) scale(1.12); }
+  100% { transform: translate(-60px, 140px) scale(.95); }
+}
+
+h1, h2, h3, h4 {
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  font-weight: 750;
+}
+
+h1 { font-size: clamp(2rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.4rem, 2.6vw, 2rem); }
+h3 { font-size: 1.12rem; }
+
+p { margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(29, 78, 216, .35);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: rgba(29, 78, 216, .18);
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7d3e4;
+  border-radius: 20px;
+  border: 3px solid var(--soft);
+}
